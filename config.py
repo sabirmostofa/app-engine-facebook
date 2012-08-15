@@ -31,6 +31,12 @@ salt = "_PUT_SALT_HERE_TO_SHA512_PASSWORDS_"
 twitter_consumer_key = 'PUT_YOUR_TWITTER_CONSUMER_KEY_HERE'
 twitter_consumer_secret = 'PUT_YOUR_TWITTER_CONSUMER_SECRET_HERE'
 
+
+# get your own consumer key and consumer secret by registering at https://developers.facebook.com/apps
+# callback url must be: http://[YOUR DOMAIN]/login/facebook/complete
+_FbApiKey = '364331990301887'
+_FbSecret = 'f5d35380801571a7640379bad834b4ab'
+
 # get your own recaptcha keys by registering at www.google.com/recaptcha
 captcha_public_key = "PUT_YOUR_RECAPCHA_PUBLIC_KEY_HERE"
 captcha_private_key = "PUT_YOUR_RECAPCHA_PRIVATE_KEY_HERE"

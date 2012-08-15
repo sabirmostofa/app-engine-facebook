@@ -25,6 +25,7 @@ import web.forms as forms
 from webapp2_extras.i18n import gettext as _
 from webapp2_extras.appengine.auth.models import Unique
 from lib import twitter
+from lib import facebook
 
 
 class RegisterBaseHandler(BaseHandler):
@@ -163,6 +164,17 @@ class SocialLoginHandler(BaseHandler):
         if provider_name == "twitter":
             twitter_helper = twitter.TwitterAuth(self, redirect_uri=callback_url)
             self.redirect(twitter_helper.auth_url())
+        if provider_name == "facebook":
+			fb = facebook.Facebook(config._FbApiKey, config._FbSecret)
+			#~ print "HTTP/1.1\n"
+			#~ print fb.get_authorize_url('http://localhost:9090')
+			#~ return 
+			print fb.get_ext_perm_url('')
+			print fb.login('')
+			return
+			fb.auth.createToken()
+			fb.login(popup=True)
+			#~ print fb.get_add_url('http://localhost') 
         else:
             message = _('%s authentication is not implemented yet.') % provider_display_name
             self.add_message(message,'warning')
@@ -1077,3 +1089,17 @@ class HomeRequestHandler(RegisterBaseHandler):
         """ Returns a simple HTML form for home """
         params = {}
         return self.render_template('boilerplate_home.html', **params)
+        
+class TestRequestHandler(BaseHandler):
+	"""
+	Handler for test
+	"""
+	def get(self):
+		params ={
+		'params' : dir(self),
+		
+		}
+		print self.__doc__
+		print 'test'
+		return;
+		return self.render_template('test.html', **params)

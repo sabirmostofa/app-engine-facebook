@@ -27,7 +27,8 @@ _routes = [
     RedirectRoute('/password-reset/<user_id>/<token>', handlers.PasswordResetCompleteHandler, name='password-reset-check', strict_slash=True),
     RedirectRoute('/change-email/<user_id>/<encoded_email>/<token>', handlers.EmailChangedCompleteHandler, name='email-changed-check', strict_slash=True),
     RedirectRoute('/secure/', handlers.SecureRequestHandler, name='secure', strict_slash=True),
-    RedirectRoute('/', handlers.HomeRequestHandler, name='home', strict_slash=True)
+    RedirectRoute('/', handlers.HomeRequestHandler, name='home', strict_slash=True),
+    RedirectRoute('/test/', handlers.TestRequestHandler, name='test', strict_slash=True)
 ]
 
 def get_routes():
